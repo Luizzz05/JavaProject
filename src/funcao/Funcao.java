@@ -2,14 +2,25 @@ package funcao;
 
 import javax.swing.JOptionPane;
 
-public class Funcao {
+import model.People;
 
-	public void media(Float nota1, Float nota2) {
+public class Funcao {
+	People p = new People();
+	private String mensage;
+
+	
+	
+	
+	public void media() {
 		//Declaração de variáveis
-		float media, notar, mediar;
-		String snr;
+		float nota1, nota2, media, notar, mediar;
+		String sn1, sn2, snr;
 				
-				
+		sn1 = JOptionPane.showInputDialog("Digite o valor da primeira nota: ");
+		nota1 = Float.parseFloat(sn1);
+		sn2 = JOptionPane.showInputDialog("Digite o valor da segunda nota: ");
+		nota2 = Float.parseFloat(sn2);
+			
 		//processamento
 		media = (nota1 + nota2)/2;
 				
@@ -35,5 +46,31 @@ public class Funcao {
 			}
 
 		}
+	}
+		
+	public String mensagem(String mensagem) {
+			this.mensage = (mensagem + " ! Vocẽ entrou na Função que retonra uma String ");
+			return mensage;
+	}
+	
+	public void printPerson() {
+		People p = new People();
+		int idade;
+		String sidade;
+		
+		p.setName(JOptionPane.showInputDialog("Digite seu nome: "));
+		p.setLastName(JOptionPane.showInputDialog("Digite Seu sobrenome: "));
+		p.setCpf(JOptionPane.showInputDialog("Digite seu CPF: "));
+		p.setBirtday(JOptionPane.showInputDialog("Digite sua data de nascimento no padrão 00/00/000: "));
+		p.setPhoneNumber(JOptionPane.showInputDialog("Digite seu número de celular no padrão (00)00000-0000: "));
+		sidade = JOptionPane.showInputDialog("Digite sua idade: ");
+		p.setAge(idade = Integer.parseInt(sidade));
+		
+		JOptionPane.showMessageDialog(null, "Os dados da pessoa são: Nome: "+ p.getName()
+																	+ " Sobrenome: "+ p.getLastName() 
+																	+ " Seu CPF: "+ p.getCpf()
+																	+ " Sua data de nascimento: "+ p.getBirtday() 
+																	+ " Seu número de telefone: "+ p.getPhoneNumber()
+																	+ " Sua idade: "+ p.getAge());
 	}
 }
